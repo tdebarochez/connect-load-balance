@@ -8,8 +8,14 @@ connect.createServer(connect.cookieParser(),
 
 
 connect.createServer(function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('first backend');
+  if (req.url == '/error') {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('not found');
+  }
+  else {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('first backend');
+  }
 }).listen(4000);
 connect.createServer(function (req, res) {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
