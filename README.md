@@ -11,10 +11,10 @@ Usage
     var connect_load_balance = require('connect-load-balance'),
         connect = require('connect');
     var ips = ['web1.example.com', 'web2.example.com:8080'];
-    var server = connect.createServer(
+    connect.createServer(
       connect.cookieParser(),
       connect_load_balance({backends: ips})
-    );
+    ).listen(3000);
 
 First note : you must call cookieParser middleware before load balancer, because the
 proxy set a session cookie to client.
