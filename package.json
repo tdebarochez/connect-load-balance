@@ -1,0 +1,10 @@
+{
+  "name": "connect-load-balance",
+  "description": "Load balance system for Connect",
+  "keywords" : [ "connect", "load balance", "proxy", "http proxy", "middleware" ],
+  "version": "0.1.0",
+  "author": "Thomas Debarochez <thomas.barochez+npm@gmail.com>",
+  "main": "./index.js",
+  "dependencies": { "connect": ">= 0.2.4" },
+  "engines": { "node": ">= 0.4.0" }
+}
