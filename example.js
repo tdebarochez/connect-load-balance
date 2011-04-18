@@ -2,10 +2,11 @@ var connect = require('connect');
 var balancer = require('./lib/connect-load-balance');
 
 var backends = ['127.0.0.1:4000', '127.0.0.1:5000'];
-connect.createServer(connect.cookieParser(),
-                     connect.favicon(),
-                     balancer({"backends": backends})).listen(3000);
-
+var server = connect.createServer(connect.cookieParser(),
+                                  connect.favicon(),
+                                  balancer({"backends": backends}));
+server.listen(3000);
+server.maxConnections = 10;
 
 connect.createServer(function (req, res) {
   if (req.url == '/error') {
